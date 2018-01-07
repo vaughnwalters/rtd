@@ -59,7 +59,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        
+        TESTING AUTOMATIC DEPLOYMENT
         {/*<header>
           <img src={WILogo} alt='logo' />
           <h1 className='App-title'>Todo App</h1>
