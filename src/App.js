@@ -34,9 +34,10 @@ class App extends Component {
 
   delete = (id) => {
     console.log(id)
-    this.setState ({
-      itemArr: this.state.itemArr.filter(el => el !== id)
-    });
+    this.setState (prevState => ({
+      itemArr: prevState.itemArr.filter(el => el !== id)
+    
+    }));
   }
 
   // onClick = (e) => {
