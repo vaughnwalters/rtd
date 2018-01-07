@@ -3,14 +3,17 @@ import React, { Component } from 'react';
 import List from './List';
 
 // console.log(Component)
+const initialList = (typeof localStorage['itemArr'] !== 'undefined') ? JSON.parse(localStorage.getItem('itemArr')) : []
 
 class App extends Component {
+
+    
 
   constructor(props) {
     super(props)
     this.state = {
       item: '', 
-      itemArr: []
+      itemArr: initialList
     }
     this.delete = this.delete.bind(this)
   }
@@ -24,20 +27,27 @@ class App extends Component {
   onSubmit = (e) => {
     // console.log('event', e.target.value)
     // prevent default keeps page from reloading
-    e.preventDefault() 
+    e.preventDefault()
+    const itemArr = [...this.state.itemArr, this.state.item]
+    localStorage.setItem('itemArr', JSON.stringify(itemArr)) 
     this.setState({
       item: '',
-      itemArr: [...this.state.itemArr, this.state.item]
+      itemArr: itemArr
     })
   }
 
 
   delete = (id) => {
-    console.log(id)
-    this.setState (prevState => ({
-      itemArr: prevState.itemArr.filter(el => el !== id)
+    // console.log(id)
+    console.log(this.state.itemArr)
+    const itemArr = this.state.itemArr.filter(el => el !== id)
+    console.log(itemArr)
+    localStorage.setItem('itemArr', JSON.stringify(itemArr)) 
+    // 
+    this.setState({
+      itemArr: itemArr
     
-    }));
+    });
   }
 
   // onClick = (e) => {
@@ -51,8 +61,8 @@ class App extends Component {
       <div>
         
         {/*<header>
-          <img src={WILogo} alt="logo" />
-          <h1 className="App-title">Todo App</h1>
+          <img src={WILogo} alt='logo' />
+          <h1 className='App-title'>Todo App</h1>
         </header> */}
          
         <form onSubmit={this.onSubmit}>
