@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import WILogo from './WILogo.png';
 import List from './List';
 
-console.log(Component)
+// console.log(Component)
 
 class App extends Component {
 
@@ -12,6 +12,7 @@ class App extends Component {
       item: '', 
       itemArr: []
     }
+    this.delete = this.delete.bind(this)
   }
 
   onChange = (e) => {
@@ -21,13 +22,28 @@ class App extends Component {
   }
 
   onSubmit = (e) => {
-    console.log('event', e)
+    // console.log('event', e.target.value)
+    // prevent default keeps page from reloading
     e.preventDefault() 
     this.setState({
       item: '',
       itemArr: [...this.state.itemArr, this.state.item]
     })
   }
+
+
+  delete = (id) => {
+    console.log(id)
+    this.setState ({
+      itemArr: this.state.itemArr.filter(el => el !== id)
+    });
+  }
+
+  // onClick = (e) => {
+  //   this.setState({ 
+  //     itemArr: []
+  //   })
+  // }
 
   render() {
     return (
@@ -43,7 +59,7 @@ class App extends Component {
           <button>Add</button>
         </form>
 
-        <List itemArr={this.state.itemArr} />
+        <List itemArr={this.state.itemArr} delete={this.delete} />
 
       </div>
     )
