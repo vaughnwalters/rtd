@@ -5,11 +5,12 @@
   font-family: Roboto, sans-serif; }
   #Todo .App {
     left: 50%;
+    top: 25%;
     margin: 2em;
     max-width: 320px;
     position: absolute;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    -webkit-transform: translate(-50%, -25%);
+    transform: translate(-50%, -50%);
     width: 100%; }
   #Todo input {
     background: transparent;
