@@ -13,7 +13,7 @@ const List = props => (
     {
       props.itemArr.map((item, index) => <li className="list-item"key={index}> {item} 
         {/* <ListItem /> */}
-        <button onClick={props.delete.bind(this, item)}>x</button>
+        <button className="delete" onClick={props.delete.bind(this, item)}>-</button>
         </li>
       )
     }

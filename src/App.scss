@@ -13,7 +13,7 @@ $Roboto: Roboto, sans-serif;
   .App {
     left: 50%;
     margin: 3em 0;
-    max-width: 320px;
+    max-width: 375px;
     position: absolute;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -62,10 +62,22 @@ $Roboto: Roboto, sans-serif;
     color: $WI-blue;
     margin: 0 1em;
     border: 1px solid $WI-blue;
+    box-sizing: border-box;
+    transition: .2s ease-in-out;
+
   }
 
   button:hover {
     background-color: $WI-yellow;
+  }  
+
+  .addTask {
+    transition:  1s ease-in-out;
+    border: 1px solid transparent;
+  }
+
+  .addTask:hover {
+    transform: rotate(720deg);
   }
 
   input:focus,
