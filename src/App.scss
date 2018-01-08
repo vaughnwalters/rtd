@@ -12,13 +12,13 @@ $Roboto: Roboto, sans-serif;
 
   .App {
     left: 50%;
-    top: 25%;
-    margin: 2em;
+    margin: 3em 0;
     max-width: 320px;
     position: absolute;
-    -webkit-transform: translate(-50%, -25%);
-    transform: translate(-50%, -50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
     width: 100%;
+    top: 10%
   }
 
   input {
