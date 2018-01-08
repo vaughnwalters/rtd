@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './App.css';
+
 // import WILogo from './WILogo.png';
 import List from './List';
 
@@ -6,8 +8,6 @@ import List from './List';
 const initialList = (typeof localStorage['itemArr'] !== 'undefined') ? JSON.parse(localStorage.getItem('itemArr')) : []
 
 class App extends Component {
-
-    
 
   constructor(props) {
     super(props)
@@ -50,23 +50,16 @@ class App extends Component {
     });
   }
 
-  // onClick = (e) => {
-  //   this.setState({ 
-  //     itemArr: []
-  //   })
-  // }
-
   render() {
     return (
-      <div>
-        TESTING AUTOMATIC DEPLOYMENT
+      <div className="App">
         {/*<header>
           <img src={WILogo} alt='logo' />
           <h1 className='App-title'>Todo App</h1>
         </header> */}
          
         <form onSubmit={this.onSubmit}>
-          <input value={this.state.item} onChange={this.onChange} />
+          <input placeholder="Enter a task" value={this.state.item} onChange={this.onChange} />
           <button>Add</button>
         </form>
 

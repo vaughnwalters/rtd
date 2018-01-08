@@ -1,0 +1,47 @@
+#Todo {
+  background-color: #bbbdc0;
+  color: #0e4d72;
+  font-size: 1em;
+  font-family: Roboto, sans-serif; }
+  #Todo .App {
+    left: 50%;
+    margin: 2em;
+    max-width: 320px;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 100%; }
+  #Todo input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #f5b637;
+    font-size: 1em;
+    color: #0e4d72;
+    height: 1.5em;
+    transition: width .35s ease-in-out;
+    width: 100px; }
+  #Todo input::placeholder {
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+    color: #0e4d72; }
+  #Todo input:focus {
+    width: 250px;
+    border-bottom: 1px solid #2fa8ae; }
+  #Todo form {
+    text-align: center; }
+  #Todo ul {
+    list-style: none;
+    padding: 0;
+    text-align: center; }
+  #Todo li {
+    padding: 0.2em; }
+  #Todo button {
+    background-color: transparent;
+    color: #0e4d72;
+    margin: 0 1em;
+    border: 1px solid #0e4d72; }
+  #Todo button:hover {
+    background-color: #f5b637; }
+  #Todo input:focus,
+  #Todo button:focus {
+    outline: none; }

@@ -1,0 +1,74 @@
+$WI-yellow: #f5b637;
+$WI-blue: #0e4d72;
+$WI-gray: #bbbdc0;
+$WI-green: #2fa8ae;
+$Roboto: Roboto, sans-serif;
+
+#Todo {
+  background-color: $WI-gray;
+  color: $WI-blue;
+  font-size: 1em;
+  font-family: $Roboto;
+
+  .App {
+    left: 50%;
+    margin: 2em;
+    max-width: 320px;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 100%;
+  }
+
+  input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $WI-yellow;
+    font-size: 1em;
+    color: $WI-blue;
+    height: 1.5em;
+    transition: width .35s ease-in-out;
+    width: 100px;
+  }
+
+  input::placeholder {
+    font-family: $Roboto;
+    font-size: 1em;
+    color: $WI-blue;
+  }
+
+  input:focus {
+    width: 250px;
+    border-bottom: 1px solid $WI-green;
+  }
+
+  form {
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  li {
+    padding: 0.2em;
+  }
+
+  button {    
+    background-color: transparent;
+    color: $WI-blue;
+    margin: 0 1em;
+    border: 1px solid $WI-blue;
+  }
+
+  button:hover {
+    background-color: $WI-yellow;
+  }
+
+  input:focus,
+  button:focus {
+    outline: none;
+  }
+}

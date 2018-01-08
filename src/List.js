@@ -9,15 +9,15 @@ import React from 'react'
 
 
 const List = props => (
-  <div>
+  <ul>
     {
-      props.itemArr.map((item, index) => <div key={index}> {item} 
+      props.itemArr.map((item, index) => <li className="list-item"key={index}> {item} 
         {/* <ListItem /> */}
         <button onClick={props.delete.bind(this, item)}>x</button>
-        </div>
+        </li>
       )
     }
-  </div>
+  </ul>
 )
 
 export default List
