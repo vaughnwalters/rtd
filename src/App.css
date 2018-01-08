@@ -6,7 +6,7 @@
   #Todo .App {
     left: 50%;
     margin: 3em 0;
-    max-width: 320px;
+    max-width: 375px;
     position: absolute;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -40,9 +40,16 @@
     background-color: transparent;
     color: #0e4d72;
     margin: 0 1em;
-    border: 1px solid #0e4d72; }
+    border: 1px solid #0e4d72;
+    box-sizing: border-box;
+    transition: .2s ease-in-out; }
   #Todo button:hover {
     background-color: #f5b637; }
+  #Todo .addTask {
+    transition: 1s ease-in-out;
+    border: 1px solid transparent; }
+  #Todo .addTask:hover {
+    transform: rotate(720deg); }
   #Todo input:focus,
   #Todo button:focus {
     outline: none; }

@@ -44,8 +44,8 @@ class App extends Component {
       <div className="App">
 
         <form onSubmit={this.onSubmit}>
-          <input spellcheck="false" placeholder="Enter a task" value={this.state.item} onChange={this.onChange} />
-          <button>Add</button>
+          <input placeholder="Enter a task" value={this.state.item} onChange={this.onChange} />
+          <button className="addTask">+</button>
         </form>
 
         <List itemArr={this.state.itemArr} delete={this.delete} />
