@@ -44,7 +44,7 @@ class App extends Component {
       <div className="App">
 
         <form onSubmit={this.onSubmit}>
-          <input placeholder="Enter a task" value={this.state.item} onChange={this.onChange} />
+          <input spellcheck="false" placeholder="Enter a task" value={this.state.item} onChange={this.onChange} />
           <button className="addTask">+</button>
         </form>
 
