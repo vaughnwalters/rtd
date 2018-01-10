@@ -44,9 +44,7 @@ class App extends Component {
   }
 
   delete = (id) => {
-    console.log(this.state.itemArr)
     const itemArr = this.state.itemArr.filter(el => el !== id)
-    console.log(itemArr)
     localStorage.setItem('itemArr', JSON.stringify(itemArr)) 
     this.setState({
       itemArr: itemArr
