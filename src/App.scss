@@ -9,6 +9,8 @@ $Roboto: Roboto, sans-serif;
   color: $WI-blue;
   font-size: 1em;
   font-family: $Roboto;
+  text-align: center;
+
 
   .App {
     left: 50%;
@@ -16,31 +18,31 @@ $Roboto: Roboto, sans-serif;
     max-width: 375px;
     position: absolute;
     -webkit-transform: translateX(-50%);
+    top: 10%;
     transform: translateX(-50%);
     width: 100%;
-    top: 10%
   }
 
   input {
     background: transparent;
     border: none;
     border-bottom: 1px solid $WI-yellow;
-    font-size: 1em;
     color: $WI-blue;
+    font-size: 1em;
     height: 1.5em;
-    transition: width .35s ease-in-out;
+    transition: border-bottom .8s ease;
     width: 100px;
-  }
 
-  input::placeholder {
-    font-family: $Roboto;
-    font-size: 1em;
-    color: $WI-blue;
-  }
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid $WI-green;
+    }
 
-  input:focus {
-    width: 250px;
-    border-bottom: 1px solid $WI-green;
+    &::placeholder {
+      font-family: $Roboto;
+      color: $WI-blue;
+      font-size: 1em;
+    }
   }
 
   form {
@@ -51,33 +53,31 @@ $Roboto: Roboto, sans-serif;
     list-style: none;
     padding: 0;
     text-align: center;
-  }
-
-  li {
-    padding: 0.2em;
+  
+    li {
+      padding: 0.2em;
+    }
   }
 
   button {    
     background-color: transparent;
-    color: $WI-blue;
-    margin: 0 1em;
     border: 1px solid $WI-blue;
     box-sizing: border-box;
-    transition: .2s ease-in-out;
-
-  }
-
-  button:hover {
-    background-color: $WI-yellow;
+    color: $WI-blue;
+    margin: 0 1em;
+    transition: 0.2s ease-in-out;
+  
+    &:hover {
+      background-color: $WI-yellow;
+    }
   }  
 
   .addTask {
-    transition:  1s ease-in-out;
     border: 1px solid transparent;
-  }
-
-  .addTask:hover {
-    transform: rotate(720deg);
+  
+    &:hover {
+      border: 1px solid $WI-blue;
+    }
   }
 
   input:focus,

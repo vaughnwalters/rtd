@@ -2,54 +2,53 @@
   background-color: #bbbdc0;
   color: #0e4d72;
   font-size: 1em;
-  font-family: Roboto, sans-serif; }
+  font-family: Roboto, sans-serif;
+  text-align: center; }
   #Todo .App {
     left: 50%;
     margin: 3em 0;
     max-width: 375px;
     position: absolute;
     -webkit-transform: translateX(-50%);
+    top: 10%;
     transform: translateX(-50%);
-    width: 100%;
-    top: 10%; }
+    width: 100%; }
   #Todo input {
     background: transparent;
     border: none;
     border-bottom: 1px solid #f5b637;
-    font-size: 1em;
     color: #0e4d72;
-    height: 1.5em;
-    transition: width .35s ease-in-out;
-    width: 100px; }
-  #Todo input::placeholder {
-    font-family: Roboto, sans-serif;
     font-size: 1em;
-    color: #0e4d72; }
-  #Todo input:focus {
-    width: 250px;
-    border-bottom: 1px solid #2fa8ae; }
+    height: 1.5em;
+    transition: border-bottom .8s ease;
+    width: 100px; }
+    #Todo input:hover, #Todo input:focus {
+      border-bottom: 1px solid #2fa8ae; }
+    #Todo input::placeholder {
+      font-family: Roboto, sans-serif;
+      color: #0e4d72;
+      font-size: 1em; }
   #Todo form {
     text-align: center; }
   #Todo ul {
     list-style: none;
     padding: 0;
     text-align: center; }
-  #Todo li {
-    padding: 0.2em; }
+    #Todo ul li {
+      padding: 0.2em; }
   #Todo button {
     background-color: transparent;
-    color: #0e4d72;
-    margin: 0 1em;
     border: 1px solid #0e4d72;
     box-sizing: border-box;
-    transition: .2s ease-in-out; }
-  #Todo button:hover {
-    background-color: #f5b637; }
+    color: #0e4d72;
+    margin: 0 1em;
+    transition: 0.2s ease-in-out; }
+    #Todo button:hover {
+      background-color: #f5b637; }
   #Todo .addTask {
-    transition: 1s ease-in-out;
     border: 1px solid transparent; }
-  #Todo .addTask:hover {
-    transform: rotate(720deg); }
+    #Todo .addTask:hover {
+      border: 1px solid #0e4d72; }
   #Todo input:focus,
   #Todo button:focus {
     outline: none; }
