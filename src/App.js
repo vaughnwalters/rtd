@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import './App.css';
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider, connect } from 'react-redux'
+// import './App.css'
 
-// import WILogo from './WILogo.png';
-import List from './List';
+const List = props => (
+  <ul>
+    {
+      props.itemArr.map((item, index) => <li className="list-item"key={index}> {item} 
+        {/* <ListItem /> */}
+        <button className="delete" onClick={props.delete.bind(this, item)}>-</button>
+        </li>
+      )
+    }
+  </ul>
+)
 
-// console.log(Component)
 const initialList = (typeof localStorage['itemArr'] !== 'undefined') ? JSON.parse(localStorage.getItem('itemArr')) : []
 
 class App extends Component {
@@ -19,14 +30,10 @@ class App extends Component {
   }
 
   onChange = (e) => {
-    // console.log('event', e)
-    // changes state every time a letter is entered
     this.setState({ item: e.target.value })
   }
 
   onSubmit = (e) => {
-    // console.log('event', e.target.value)
-    // prevent default keeps page from reloading
     e.preventDefault()
     const itemArr = [...this.state.itemArr, this.state.item]
     localStorage.setItem('itemArr', JSON.stringify(itemArr)) 
@@ -36,28 +43,21 @@ class App extends Component {
     })
   }
 
-
   delete = (id) => {
-    // console.log(id)
     console.log(this.state.itemArr)
     const itemArr = this.state.itemArr.filter(el => el !== id)
     console.log(itemArr)
     localStorage.setItem('itemArr', JSON.stringify(itemArr)) 
-    // 
     this.setState({
       itemArr: itemArr
-    
     });
   }
+
+
 
   render() {
     return (
       <div className="App">
-        {/*<header>
-          <img src={WILogo} alt='logo' />
-          <h1 className='App-title'>Todo App</h1>
-        </header> */}
-         
         <form onSubmit={this.onSubmit}>
           <input spellcheck="false" placeholder="Enter a task" value={this.state.item} onChange={this.onChange} />
           <button className="addTask">+</button>
@@ -69,5 +69,6 @@ class App extends Component {
     )
   }
 }
+
 
 export default App
