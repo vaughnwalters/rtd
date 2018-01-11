@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { compose, createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
 import { autoRehydrate, persistStore} from 'redux-persist'
-import './App.css'
+import './styles/App.css'
 
 // FUNCTIONAL COMPONENT
 const List = props => (
