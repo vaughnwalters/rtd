@@ -5,18 +5,11 @@ import { Provider, connect } from 'react-redux'
 import { autoRehydrate, persistStore} from 'redux-persist'
 import './App.css'
 
-
-
-
-// const initialList = (typeof localStorage['itemArr'] !== 'undefined') ? JSON.parse(localStorage.getItem('itemArr')) : []
-
-
 // FUNCTIONAL COMPONENT
 const List = props => (
   <ul>
     {
       props.itemArr.map((item, index) => <li className="list-item"key={index}> {item} 
-        {/* <ListItem /> */}
         <button
           className="delete"
           onClick={props.delete.bind(this, index)}>-</button>
@@ -27,13 +20,11 @@ const List = props => (
 )
 
 
-
 // TODO COMPONENT
 class Todo extends Component {
 
-
   onChange = (e) => {
-    this.props.typing(e.target.value)
+    this.props.buildingStringAction(e.target.value)
   }
 
   onSubmit = (e) => {
@@ -60,27 +51,25 @@ class Todo extends Component {
 }
 
 
-// Todo Action
+// ACTIONS
 const submitAction = () => ({
  type: 'CREATE_TODO'
 })
 
-const typing = (value) => ({
+const buildingStringAction = (value) => ({
   type: 'DESCRIBE_TODO',
   payload: value
 })
 
-// refactor from onChange
-// const 
-// not currrently removing from localStorage
 const deleteAction = (index) => ({ 
   type: 'DELETE_TODO',
   payload: index 
 })
 
 
+// REDUCER
 const initialState = {item: '', itemArr: []}
-// Todo Reducer
+
 function todoReducer(state = initialState, action) {
   switch (action.type) {
     case 'DESCRIBE_TODO':
@@ -98,7 +87,7 @@ function todoReducer(state = initialState, action) {
       return {
         ...state,
         itemArr: [
-          ...state.itemArr.slice(0, index), // figure out math
+          ...state.itemArr.slice(0, index), 
           ...state.itemArr.slice(index + 1)
         ]
       }
@@ -110,49 +99,31 @@ function todoReducer(state = initialState, action) {
   }
 }
 
-// on @@APP_INIT or similar load saved todos from local storage
 
-// local storage:
+// LOCAL STORAGE MIDDLEWARE
 const store = compose(
   autoRehydrate()
   )(createStore)(todoReducer)
 
 persistStore(store)
 
-// Todo Store
-// const store = createStore(todoReducer)
 
-// Todo Map Redux state to component props
-
-// this.props.item and then value is state.item, por ejamplo
+// STORE
 function mapStateToProps(state) {
-  console.log('state', state)
   return {
       item: state.item, 
-      // itemArr: initialList
       itemArr: state.itemArr
   }
 }
 
-
-// method on the store to consume the action object
-
-// passing actions we created (in this example keys with the same names)
-
-// mapDispatchToProps if an object is automatically bound to Dispatch, so each key inside the object becomes bound to dispatch.  If a function though, need to be explicit about it 
-
 const mapDispatchToProps = {
-  // onSubmit: submitAction
-  // delete: deleteAction
   submitAction,
   deleteAction,
-  typing
+  buildingStringAction
 }
 
 
-
-
-// Todo Connected Component
+// CONNECTED COMPONENT
 const App = connect(
   mapStateToProps,
   mapDispatchToProps
@@ -164,14 +135,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
-
-
-
-
-
-// mapStateToProps -
-// first arg is a function that takes state as an argument
-// can call state X and props Y 
-
 
 
