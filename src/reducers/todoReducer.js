@@ -17,7 +17,6 @@ export const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         itemArr: [
-          ...state.itemArr.slice(0, index), // figure out math
           ...state.itemArr.slice(index + 1)
         ]
       }

@@ -3,13 +3,11 @@ import { autoRehydrate, persistStore} from 'redux-persist'
 import { todoReducer } from '../reducers/todoReducer'
 import { submitAction, buildingStringAction, deleteAction } from '../actions/todo'
 
-
 export const store = compose(
   autoRehydrate()
   )(createStore)(todoReducer)
 
 persistStore(store)
-
 
 export const mapStateToProps = (state) => {
   return {

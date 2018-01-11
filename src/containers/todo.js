@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import List from '../components/List'
-import { mapStateToProps, store, mapDispatchToProps } from '../store/store'
-import { Provider, connect } from 'react-redux'
+import { mapStateToProps, mapDispatchToProps } from '../store/store'
+import { connect } from 'react-redux'
 
-
-
-
-// TODO COMPONENT
 export class Todo extends Component {
 
   onChange = (e) => {
