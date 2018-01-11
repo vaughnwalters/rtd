@@ -1,14 +1,20 @@
+import {
+  CREATE_TODO,
+  BUILD_STRING,
+  DELETE_TODO
+} from '../constants'
+
 export const submitAction = () => ({
- type: 'CREATE_TODO'
+ type: CREATE_TODO
 })
 
 export const buildingStringAction = (value) => ({
-  type: 'DESCRIBE_TODO',
+  type: BUILD_STRING,
   payload: value
 })
 
 export const deleteAction = (index) => ({ 
-  type: 'DELETE_TODO',
+  type: DELETE_TODO,
   payload: index 
 })
 
