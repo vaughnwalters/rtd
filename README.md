@@ -9,10 +9,10 @@
 3. As a user I can complete an item on the "to-do" list.
 
 ### To run locally
-  nvm use 8.9.3
-  npm install
-  npm run watch-css
-  npm run dub
+nvm use 8.9.3    
+npm install  
+npm run watch-css  
+npm run dub  
 
 ### Deployed link:
   http://vw-rtd.herokuapp.com/
