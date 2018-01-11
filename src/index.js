@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
+import { compose, createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
+import { autoRehydrate, persistStore} from 'redux-persist'
+import './App.css'
+
 
 
 
 // const initialList = (typeof localStorage['itemArr'] !== 'undefined') ? JSON.parse(localStorage.getItem('itemArr')) : []
 
-console.log('sup')
 
 // FUNCTIONAL COMPONENT
 const List = props => (
@@ -24,63 +26,20 @@ const List = props => (
   </ul>
 )
 
-// Counter component
-// class Counter extends Component {
-//   render() {
-//     const { value, onIncreaseClick, onDecreaseClick } = this.props
-//     return (
-//       <div>
-//         <span>{value}</span>
-//         <button onClick={onIncreaseClick}>Increase</button>
-//         <button onClick={onDecreaseClick}>Decrease</button>
 
-//       </div>
-//     )
-//   }
-// }
 
 // TODO COMPONENT
 class Todo extends Component {
-  //  constructor(props) {
-  //   super(props)
-  //   // this.state = {
-  //   //   item: '', 
-  //   //   itemArr: initialList
-  //   // }
-  //   // this.delete = this.delete.bind(this)
-  // }
 
-  // delete() {}
 
   onChange = (e) => {
-    // this.setState({ item: e.target.value })
     this.props.typing(e.target.value)
   }
 
   onSubmit = (e) => {
     e.preventDefault()
-    // const itemArr = [...this.state.itemArr, this.state.item]
-    // localStorage.setItem('itemArr', JSON.stringify(itemArr)) 
-    // this.setState({
-    //   item: '',
-    //   itemArr: itemArr
-    // })
     this.props.submitAction()
   }
-
-  // delete = (index) => {
-  //   // console.log(this.state.itemArr)
-  //   const itemArr = this.state.itemArr.filter(el => el !== id)
-  //   console.log(itemArr)
-  //   // abstract this implementation elsewhere
-  //   localStorage.setItem('itemArr', JSON.stringify(itemArr))
-  //   // redux-logic
-  //   // (logic middleware that listens to delete and then handles state mutations like local storage, etc)
-  //   // this.setState({
-  //   //   itemArr: itemArr
-  //   // });
-  //   this.props.delete()
-  // }
 
   render() {
     return (
@@ -100,9 +59,6 @@ class Todo extends Component {
   }
 }
 
-// Counter Action
-// const increaseAction = { type: 'increase' }
-// const decreaseAction = { type: 'decrease' }
 
 // Todo Action
 const submitAction = () => ({
@@ -123,24 +79,9 @@ const deleteAction = (index) => ({
 })
 
 
-// Counter Reducer
-// function counter(state = { count: 0 }, action) {
-//   const count = state.count
-//   switch (action.type) {
-//     case 'increase':
-//       return { count: count + 1 }
-//     case 'decrease':
-//       return { count: count - 1 }
-//     default:
-//       return state
-//   }
-// }
-
 const initialState = {item: '', itemArr: []}
 // Todo Reducer
 function todoReducer(state = initialState, action) {
-  // const count = state.count
-  // console.log(count)
   switch (action.type) {
     case 'DESCRIBE_TODO':
       return {
@@ -148,15 +89,11 @@ function todoReducer(state = initialState, action) {
         item: action.payload
       }
     case 'CREATE_TODO':
-      // return { itemArr: count + 1 }
-      // return deleteAction
-      // console.log(state.item)
       return {
         item: '',
         itemArr: [...state.itemArr, state.item]
       }
     case 'DELETE_TODO':
-      // return { count: count - 1 }
       const index = action.payload
       return {
         ...state,
@@ -165,6 +102,9 @@ function todoReducer(state = initialState, action) {
           ...state.itemArr.slice(index + 1)
         ]
       }
+    case 'persist/REHYDRATE':
+      return {...state, persistedState: action.payload
+      }
     default:
       return state
   }
@@ -172,19 +112,15 @@ function todoReducer(state = initialState, action) {
 
 // on @@APP_INIT or similar load saved todos from local storage
 
-// Counter Store
-// const store = createStore(counter)
+// local storage:
+const store = compose(
+  autoRehydrate()
+  )(createStore)(todoReducer)
+
+persistStore(store)
 
 // Todo Store
-const store = createStore(todoReducer)
-
-// Counter Map Redux state to component props
-
-// function mapStateToProps(state) {
-//   return {
-//     value: state.count
-//   }
-// }
+// const store = createStore(todoReducer)
 
 // Todo Map Redux state to component props
 
@@ -198,22 +134,6 @@ function mapStateToProps(state) {
   }
 }
 
-// Counter Map Redux actions to component props
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     onIncreaseClick: () => dispatch(increaseAction),
-//     onDecreaseClick: () => dispatch(decreaseAction)
-//   }
-
-
-// Todo Map Redux actions to component props
-// function mapDispatchToProps(dispatch) {
-//   console.log(dispatch)
-//   return {
-//     onSubmit: () => dispatch(submitAction),
-//     delete: () => dispatch(deleteAction)
-//   }
-// }
 
 // method on the store to consume the action object
 
@@ -229,18 +149,7 @@ const mapDispatchToProps = {
   typing
 }
 
-// // Counter Connected Component
-// const App = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Counter)
 
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>,
-//   document.getElementById('root')
-// )
 
 
 // Todo Connected Component
@@ -263,37 +172,6 @@ ReactDOM.render(
 // mapStateToProps -
 // first arg is a function that takes state as an argument
 // can call state X and props Y 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // REACT TODO
-
-// import React, { Component } from 'react'
-// import ReactDOM from 'react-dom'
-// import './index.css'
-// import App from './App'
-
-
-// ReactDOM.render(<App />, document.getElementById('root'))
-
-
-
-
 
 
 
