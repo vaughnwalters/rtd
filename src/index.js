@@ -5,7 +5,9 @@ import { Provider, connect } from 'react-redux'
 
 
 
-const initialList = (typeof localStorage['itemArr'] !== 'undefined') ? JSON.parse(localStorage.getItem('itemArr')) : []
+// const initialList = (typeof localStorage['itemArr'] !== 'undefined') ? JSON.parse(localStorage.getItem('itemArr')) : []
+
+console.log('sup')
 
 // FUNCTIONAL COMPONENT
 const List = props => (
