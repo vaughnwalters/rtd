@@ -1,87 +1,87 @@
-// $WI-yellow: #f5b637;
-// $WI-blue: #0e4d72;
-// $WI-gray: #bbbdc0;
-// $WI-green: #2fa8ae;
-// $Roboto: Roboto, sans-serif;
+$WI-yellow: #f5b637;
+$WI-blue: #0e4d72;
+$WI-gray: #bbbdc0;
+$WI-green: #2fa8ae;
+$Roboto: Roboto, sans-serif;
 
-// #Todo {
-//   background-color: $WI-gray;
-//   color: $WI-blue;
-//   font-size: 1em;
-//   font-family: $Roboto;
-//   text-align: center;
+#Todo {
+  background-color: $WI-gray;
+  color: $WI-blue;
+  font-size: 1em;
+  font-family: $Roboto;
+  text-align: center;
 
 
-//   .App {
-//     left: 50%;
-//     margin: 3em 0;
-//     max-width: 375px;
-//     position: absolute;
-//     -webkit-transform: translateX(-50%);
-//     top: 10%;
-//     transform: translateX(-50%);
-//     width: 100%;
-//   }
+  .App {
+    left: 50%;
+    margin: 3em 0;
+    max-width: 375px;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    top: 10%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
 
-//   input {
-//     background: transparent;
-//     border: none;
-//     border-bottom: 1px solid $WI-yellow;
-//     color: $WI-blue;
-//     font-size: 1em;
-//     height: 1.5em;
-//     transition: border-bottom .8s ease;
-//     width: 100px;
+  input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $WI-yellow;
+    color: $WI-blue;
+    font-size: 1em;
+    height: 1.5em;
+    transition: border-bottom .8s ease;
+    width: 100px;
 
-//     &:hover,
-//     &:focus {
-//       border-bottom: 1px solid $WI-green;
-//     }
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid $WI-green;
+    }
 
-//     &::placeholder {
-//       font-family: $Roboto;
-//       color: $WI-blue;
-//       font-size: 1em;
-//     }
-//   }
+    &::placeholder {
+      font-family: $Roboto;
+      color: $WI-blue;
+      font-size: 1em;
+    }
+  }
 
-//   form {
-//     text-align: center;
-//   }
+  form {
+    text-align: center;
+  }
 
-//   ul {
-//     list-style: none;
-//     padding: 0;
-//     text-align: center;
+  ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
   
-//     li {
-//       padding: 0.2em;
-//     }
-//   }
+    li {
+      padding: 0.2em;
+    }
+  }
 
-//   button {    
-//     background-color: transparent;
-//     border: 1px solid $WI-blue;
-//     box-sizing: border-box;
-//     color: $WI-blue;
-//     margin: 0 1em;
-//     transition: 0.2s ease-in-out;
+  button {    
+    background-color: transparent;
+    border: 1px solid $WI-blue;
+    box-sizing: border-box;
+    color: $WI-blue;
+    margin: 0 1em;
+    transition: 0.2s ease-in-out;
   
-//     &:hover {
-//       background-color: $WI-yellow;
-//     }
-//   }  
+    &:hover {
+      background-color: $WI-yellow;
+    }
+  }  
 
-//   .addTask {
-//     border: 1px solid transparent;
+  .addTask {
+    border: 1px solid transparent;
   
-//     &:hover {
-//       border: 1px solid $WI-blue;
-//     }
-//   }
+    &:hover {
+      border: 1px solid $WI-blue;
+    }
+  }
 
-//   input:focus,
-//   button:focus {
-//     outline: none;
-//   }
-// }
+  input:focus,
+  button:focus {
+    outline: none;
+  }
+}
