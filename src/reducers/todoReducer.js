@@ -23,8 +23,8 @@ export const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         itemArr: [
-          ...state.itemArr.slice(index + 1)
-        ]
+          ...state.itemArr.slice(0, index), 
+          ...state.itemArr.slice(index + 1)        ]
       }
     case 'persist/REHYDRATE':
       return {...state, persistedState: action.payload
