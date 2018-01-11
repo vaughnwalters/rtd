@@ -4,6 +4,9 @@ import { compose, createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
 import { autoRehydrate, persistStore} from 'redux-persist'
 import './styles/App.css'
+import { todoReducer } from './reducers/todoReducer'
+
+import { submitAction, buildingStringAction, deleteAction } from './actions/todo'
 
 // FUNCTIONAL COMPONENT
 const List = props => (
@@ -52,52 +55,52 @@ class Todo extends Component {
 
 
 // ACTIONS
-const submitAction = () => ({
- type: 'CREATE_TODO'
-})
+// const submitAction = () => ({
+//  type: 'CREATE_TODO'
+// })
 
-const buildingStringAction = (value) => ({
-  type: 'DESCRIBE_TODO',
-  payload: value
-})
+// const buildingStringAction = (value) => ({
+//   type: 'DESCRIBE_TODO',
+//   payload: value
+// })
 
-const deleteAction = (index) => ({ 
-  type: 'DELETE_TODO',
-  payload: index 
-})
+// const deleteAction = (index) => ({ 
+//   type: 'DELETE_TODO',
+//   payload: index 
+// })
 
 
 // REDUCER
-const initialState = {item: '', itemArr: []}
+// const initialState = {item: '', itemArr: []}
 
-function todoReducer(state = initialState, action) {
-  switch (action.type) {
-    case 'DESCRIBE_TODO':
-      return {
-        ...state,
-        item: action.payload
-      }
-    case 'CREATE_TODO':
-      return {
-        item: '',
-        itemArr: [...state.itemArr, state.item]
-      }
-    case 'DELETE_TODO':
-      const index = action.payload
-      return {
-        ...state,
-        itemArr: [
-          ...state.itemArr.slice(0, index), 
-          ...state.itemArr.slice(index + 1)
-        ]
-      }
-    case 'persist/REHYDRATE':
-      return {...state, persistedState: action.payload
-      }
-    default:
-      return state
-  }
-}
+// function todoReducer(state = initialState, action) {
+//   switch (action.type) {
+//     case 'DESCRIBE_TODO':
+//       return {
+//         ...state,
+//         item: action.payload
+//       }
+//     case 'CREATE_TODO':
+//       return {
+//         item: '',
+//         itemArr: [...state.itemArr, state.item]
+//       }
+//     case 'DELETE_TODO':
+//       const index = action.payload
+//       return {
+//         ...state,
+//         itemArr: [
+//           ...state.itemArr.slice(0, index), 
+//           ...state.itemArr.slice(index + 1)
+//         ]
+//       }
+//     case 'persist/REHYDRATE':
+//       return {...state, persistedState: action.payload
+//       }
+//     default:
+//       return state
+//   }
+// }
 
 
 // LOCAL STORAGE MIDDLEWARE
